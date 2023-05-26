@@ -255,6 +255,12 @@ install(TARGETS ${PROJECT_NAME}
   RUNTIME DESTINATION bin
 )
 
+install(DIRECTORY 
+    config
+    DESTINATION share/${PROJECT_NAME}
+ )
+	  	
+
 # Install headers
 install(
   DIRECTORY include/
