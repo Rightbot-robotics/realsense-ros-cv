@@ -1,4 +1,4 @@
-/camera/camera:
+/cam_1/cam_1:
   ros__parameters:  
     accel_fps: 63
     accel_info_qos: DEFAULT
@@ -49,7 +49,7 @@
     depth_module.inter_cam_sync_mode: 0
     depth_module.laser_power: 150.0
     depth_module.output_trigger_enabled: false
-    depth_module.profile: 1280x720x10
+    depth_module.profile: 1280x720x30
     depth_module.sequence_id: 0
     depth_module.sequence_name: 0
     depth_module.sequence_size: 2
