@@ -1,4 +1,4 @@
-/cam_2/cam_2:
+/right_camera/right_camera:
   ros__parameters:  
     accel_fps: 63
     accel_info_qos: DEFAULT
@@ -130,7 +130,7 @@
     rgb_camera.sharpness: 50
     rgb_camera.white_balance: 4600.0
     rosbag_filename: ''
-    serial_no: '114122250386'
+    serial_no: '117222250167'
     spatial_filter.enable: false
     spatial_filter.filter_magnitude: 2
     spatial_filter.filter_smooth_alpha: 0.36

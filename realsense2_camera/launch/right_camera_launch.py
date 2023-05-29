@@ -104,8 +104,8 @@ def generate_launch_description():
             launch_ros.actions.Node(
                 # condition=IfCondition(PythonExpression([LaunchConfiguration('config_file'), " == ''"])),
                 package='realsense2_camera',
-                namespace='cam_2',
-                name='cam_2',
+                namespace='right_camera',
+                name='right_camera',
                 executable='realsense2_camera_node',
                 parameters=[config],
                 output='screen',
