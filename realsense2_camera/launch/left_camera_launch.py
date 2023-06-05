@@ -11,7 +11,7 @@ from launch.substitutions import LaunchConfiguration, PythonExpression
 from launch.conditions import IfCondition
 
 
-configurable_parameters = [{'name': 'camera_name',                  'default': 'cam_1', 'description': 'camera unique name'},
+configurable_parameters = [{'name': 'camera_name',                  'default': 'left_camera', 'description': 'camera unique name'},
                            {'name': 'serial_no',                    'default': "''", 'description': 'choose device by serial number'},
                            {'name': 'usb_port_id',                  'default': "''", 'description': 'choose device by usb port id'},
                            {'name': 'device_type',                  'default': "''", 'description': 'choose device by type'},

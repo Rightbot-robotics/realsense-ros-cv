@@ -1,13 +1,13 @@
 /left_camera/left_camera:
   ros__parameters:  
-    accel_fps: 63
+    accel_fps: 100
     accel_info_qos: DEFAULT
     accel_qos: SENSOR_DATA
     align_depth.enable: true
     align_depth.frames_queue_size: 16
     angular_velocity_cov: 0.01
     base_frame_id: link
-    camera_name: cam_1
+    camera_name: left_camera
     clip_distance: 6.0
     color_info_qos: DEFAULT
     color_qos: SYSTEM_DEFAULT
@@ -21,7 +21,7 @@
     colorizer.stream_format_filter: 1
     colorizer.stream_index_filter: -1
     colorizer.visual_preset: 0
-    decimation_filter.enable: true
+    decimation_filter.enable: false
     decimation_filter.filter_magnitude: 8
     decimation_filter.frames_queue_size: 16
     decimation_filter.stream_filter: 0
@@ -45,11 +45,11 @@
     depth_module.frames_queue_size: 16
     depth_module.gain: 16
     depth_module.global_time_enabled: true
-    depth_module.hdr_enabled: false
+    depth_module.hdr_enabled: true
     depth_module.inter_cam_sync_mode: 0
     depth_module.laser_power: 150.0
     depth_module.output_trigger_enabled: false
-    depth_module.profile: 1280x720x30
+    depth_module.profile: 1280x720x15
     depth_module.sequence_id: 0
     depth_module.sequence_name: 0
     depth_module.sequence_size: 2
@@ -125,12 +125,12 @@
     rgb_camera.gamma: 300
     rgb_camera.global_time_enabled: true
     rgb_camera.hue: 0
-    rgb_camera.profile: 1280x720x10
+    rgb_camera.profile: 1280x720x15
     rgb_camera.saturation: 64
     rgb_camera.sharpness: 50
     rgb_camera.white_balance: 4600.0
     rosbag_filename: ''
-    serial_no: '114122250386'
+    serial_no: '117222250167'
     spatial_filter.enable: false
     spatial_filter.filter_magnitude: 2
     spatial_filter.filter_smooth_alpha: 0.36
@@ -148,7 +148,7 @@
     temporal_filter.stream_filter: 1
     temporal_filter.stream_format_filter: 0
     temporal_filter.stream_index_filter: 0
-    tf_publish_rate: 0.0
+    tf_publish_rate: 10.0
     unite_imu_method: 0
     usb_port_id: ''
     use_sim_time: false

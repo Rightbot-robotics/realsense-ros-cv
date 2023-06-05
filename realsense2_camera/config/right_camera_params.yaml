@@ -6,8 +6,8 @@
     align_depth.enable: true
     align_depth.frames_queue_size: 16
     angular_velocity_cov: 0.01
-    base_frame_id: base_link
-    camera_name: cam_2
+    base_frame_id: link 
+    camera_name: right_camera
     clip_distance: 6.0
     color_info_qos: DEFAULT
     color_qos: SYSTEM_DEFAULT
@@ -21,7 +21,7 @@
     colorizer.stream_format_filter: 1
     colorizer.stream_index_filter: -1
     colorizer.visual_preset: 0
-    decimation_filter.enable: true
+    decimation_filter.enable: false
     decimation_filter.filter_magnitude: 8
     decimation_filter.frames_queue_size: 16
     decimation_filter.stream_filter: 0
@@ -49,7 +49,7 @@
     depth_module.inter_cam_sync_mode: 0
     depth_module.laser_power: 150.0
     depth_module.output_trigger_enabled: false
-    depth_module.profile: 1280x720x30
+    depth_module.profile: 1280x720x15
     depth_module.sequence_id: 0
     depth_module.sequence_name: 0
     depth_module.sequence_size: 2
@@ -125,12 +125,12 @@
     rgb_camera.gamma: 300
     rgb_camera.global_time_enabled: true
     rgb_camera.hue: 0
-    rgb_camera.profile: 1280x720x10
+    rgb_camera.profile: 1280x720x15
     rgb_camera.saturation: 64
     rgb_camera.sharpness: 50
     rgb_camera.white_balance: 4600.0
     rosbag_filename: ''
-    serial_no: '117222250167'
+    serial_no: '114122250386'
     spatial_filter.enable: false
     spatial_filter.filter_magnitude: 2
     spatial_filter.filter_smooth_alpha: 0.36
