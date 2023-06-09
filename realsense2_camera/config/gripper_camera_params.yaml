@@ -3,7 +3,7 @@
     accel_fps: 100
     accel_info_qos: DEFAULT
     accel_qos: SENSOR_DATA
-    align_depth.enable: false
+    align_depth.enable: true
     align_depth.frames_queue_size: 16
     angular_velocity_cov: 0.01
     base_frame_id: link

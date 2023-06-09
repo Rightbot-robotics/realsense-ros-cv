@@ -99,8 +99,8 @@
     pointcloud.pointcloud_qos: DEFAULT
     pointcloud.stream_filter: 0
     pointcloud.stream_format_filter: 0
-    publish_odom_tf: true
-    publish_tf: true
+    publish_odom_tf: false
+    publish_tf: false
     qos_overrides./parameter_events.publisher.depth: 1000
     qos_overrides./parameter_events.publisher.durability: volatile
     qos_overrides./parameter_events.publisher.history: keep_last
