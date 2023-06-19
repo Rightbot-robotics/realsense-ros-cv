@@ -20,6 +20,8 @@
 #include <rclcpp/clock.hpp>
 #include <fstream>
 #include <image_publisher.h>
+#include <boost/range/combine.hpp>
+#include <vector>
 
 // Header files for disabling intra-process comms for static broadcaster.
 #include <rclcpp/publisher_options.hpp>
@@ -574,6 +576,7 @@ void BaseRealSenseNode::frame_callback(rs2::frame frame)
     {
         ROS_DEBUG("Frameset arrived.");
         auto frameset = frame.as<rs2::frameset>();
+        auto raw_frameset = frame.as<rs2::frameset>();
         ROS_DEBUG("List of frameset before applying filters: size: %d", static_cast<int>(frameset.size()));
         for (auto it = frameset.begin(); it != frameset.end(); ++it)
         {
@@ -588,22 +591,27 @@ void BaseRealSenseNode::frame_callback(rs2::frame frame)
         }
         // Clip depth_frame for max range:
         rs2::depth_frame original_depth_frame = frameset.get_depth_frame();
+        rs2::depth_frame original_depth_frame_raw = raw_frameset.get_depth_frame();
         if (original_depth_frame && _clipping_distance > 0)
         {
             clip_depth(original_depth_frame, _clipping_distance);
+            clip_depth(original_depth_frame_raw, _clipping_distance);
         }
 
         ROS_DEBUG("num_filters: %d", static_cast<int>(_filters.size()));
-        for (auto filter_it : _filters)
-        {
-            frameset = filter_it->Process(frameset);
+        for (auto filter_it = _filters.begin(); filter_it != _filters.end(); ++filter_it)
+        {   
+                frameset = (*filter_it)->Process(frameset);
+            if (*filter_it != *_filters.begin())
+                raw_frameset = (*filter_it)->Process(raw_frameset);
         }
 
         ROS_DEBUG("List of frameset after applying filters: size: %d", static_cast<int>(frameset.size()));
         bool sent_depth_frame(false);
-        for (auto it = frameset.begin(); it != frameset.end(); ++it)
+        for (int i = 0; i<static_cast<int>(frameset.size()); i++ )
         {
-            auto f = (*it);
+            rs2::frame f = frameset[i];
+            rs2::frame f_raw = raw_frameset[i];
             auto stream_type = f.get_profile().stream_type();
             auto stream_index = f.get_profile().stream_index();
             auto stream_format = f.get_profile().format();
@@ -630,6 +638,12 @@ void BaseRealSenseNode::frame_callback(rs2::frame frame)
                             _depth_aligned_info_publisher,
                             _depth_aligned_image_publishers,
                             false);
+
+                    publishFrame(f_raw, t, COLOR,
+                            _depth_aligned_image,
+                            _depth_aligned_info_publisher,
+                            _depth_aligned_image_raw_publishers,
+                            false);
                     continue;
                 }
             }
@@ -637,6 +651,10 @@ void BaseRealSenseNode::frame_callback(rs2::frame frame)
                         _image,
                         _info_publisher,
                         _image_publishers);
+            publishFrame(f, t, sip,
+                        _image,
+                        _info_publisher,
+                        _image_raw_publishers);
         }
         if (original_depth_frame && _align_depth_filter->is_enabled())
         {
@@ -651,6 +669,11 @@ void BaseRealSenseNode::frame_callback(rs2::frame frame)
                         _image,
                         _info_publisher,
                         _image_publishers);
+            publishFrame(frame_to_send, t,
+                        DEPTH,
+                        _image,
+                        _info_publisher,
+                        _image_raw_publishers);
         }
     }
     else if (frame.is<rs2::video_frame>())
@@ -673,6 +696,11 @@ void BaseRealSenseNode::frame_callback(rs2::frame frame)
                     _image,
                     _info_publisher,
                     _image_publishers);
+        publishFrame(frame, t,
+                    sip,
+                    _image,
+                    _info_publisher,
+                    _image_raw_publishers);
     }
     _synced_imu_publisher->Resume();
 } // frame_callback
