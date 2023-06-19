@@ -39,9 +39,9 @@ namespace realsense2_camera
 
         public:
             std::shared_ptr<rs2::filter> _filter;
+            bool _is_enabled;
 
         protected:
-            bool _is_enabled;
             SensorParams _params;
             std::vector<std::string> _parameters_names;
             rclcpp::Logger _logger;

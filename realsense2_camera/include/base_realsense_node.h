@@ -293,9 +293,13 @@ namespace realsense2_camera
         PipelineSyncer _syncer;
         rs2::asynchronous_syncer _asyncer;
         std::shared_ptr<NamedFilter> _colorizer_filter;
+        std::shared_ptr<NamedFilter> _colorizer_raw_filter;
         std::shared_ptr<AlignDepthFilter> _align_depth_filter;
+        std::shared_ptr<AlignDepthFilter> _align_depth_raw_filter;
         std::shared_ptr<PointcloudFilter> _pc_filter;
+        std::shared_ptr<PointcloudFilter> _pc_raw_filter;
         std::vector<std::shared_ptr<NamedFilter>> _filters;
+        std::vector<std::shared_ptr<NamedFilter>> _raw_filters;
         std::vector<rs2::sensor> _dev_sensors;
         std::vector<std::unique_ptr<RosSensor>> _available_ros_sensors;
 
