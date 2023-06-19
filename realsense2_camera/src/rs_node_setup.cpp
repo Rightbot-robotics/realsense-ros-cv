@@ -184,8 +184,10 @@ void BaseRealSenseNode::stopPublishers(const std::vector<stream_profile>& profil
         if (profile.is<rs2::video_stream_profile>())
         {
             _image_publishers.erase(sip);
+            _image_raw_publishers.erase(sip);
             _info_publisher.erase(sip);
             _depth_aligned_image_publishers.erase(sip);
+            _depth_aligned_image_raw_publishers.erase(sip);
             _depth_aligned_info_publisher.erase(sip);
         }
         else if (profile.is<rs2::motion_stream_profile>())
@@ -211,12 +213,13 @@ void BaseRealSenseNode::startPublishers(const std::vector<stream_profile>& profi
 
         if (profile.is<rs2::video_stream_profile>())
         {
-            std::stringstream image_raw, camera_info;
+            std::stringstream image_raw, image_raw_unclipped, camera_info;
             bool rectified_image = false;
             if (sensor.rs2::sensor::is<rs2::depth_sensor>())
                 rectified_image = true;
 
             image_raw << stream_name << "/image_" << ((rectified_image)?"rect_":"") << "raw";
+            image_raw_unclipped << stream_name << "/image_unclipped_" << ((rectified_image)?"rect_":"") << "raw";
             camera_info << stream_name << "/camera_info";
 
             // We can use 2 types of publishers:
@@ -225,10 +228,12 @@ void BaseRealSenseNode::startPublishers(const std::vector<stream_profile>& profi
             if (_use_intra_process)
             {
                 _image_publishers[sip] = std::make_shared<image_rcl_publisher>(_node, image_raw.str(), qos);
+                _image_raw_publishers[sip] = std::make_shared<image_rcl_publisher>(_node, image_raw_unclipped.str(), qos);
             }
             else
             {
                 _image_publishers[sip] = std::make_shared<image_transport_publisher>(_node, image_raw.str(), qos);
+                _image_raw_publishers[sip] = std::make_shared<image_transport_publisher>(_node, image_raw_unclipped.str(), qos);
                 ROS_DEBUG_STREAM("image transport publisher was created for topic" << image_raw.str());
             }
 
@@ -237,8 +242,9 @@ void BaseRealSenseNode::startPublishers(const std::vector<stream_profile>& profi
 
             if (_align_depth_filter->is_enabled() && (sip != DEPTH) && sip.second < 2)
             {
-                std::stringstream aligned_image_raw, aligned_camera_info;
+                std::stringstream aligned_image_raw, aligned_image_raw_unclipped, aligned_camera_info;
                 aligned_image_raw << "aligned_depth_to_" << stream_name << "/image_raw";
+                aligned_image_raw_unclipped << "aligned_unclipped_depth_to_" << stream_name << "/image_raw";
                 aligned_camera_info << "aligned_depth_to_" << stream_name << "/camera_info";
 
                 std::string aligned_stream_name = "aligned_depth_to_" + stream_name;
@@ -249,10 +255,12 @@ void BaseRealSenseNode::startPublishers(const std::vector<stream_profile>& profi
                 if (_use_intra_process)
                 {
                     _depth_aligned_image_publishers[sip] = std::make_shared<image_rcl_publisher>(_node, aligned_image_raw.str(), qos);
+                    _depth_aligned_image_raw_publishers[sip] = std::make_shared<image_rcl_publisher>(_node, aligned_image_raw_unclipped.str(), qos);
                 }
                 else
                 {
                     _depth_aligned_image_publishers[sip] = std::make_shared<image_transport_publisher>(_node, aligned_image_raw.str(), qos);
+                    _depth_aligned_image_raw_publishers[sip] = std::make_shared<image_transport_publisher>(_node, aligned_image_raw_unclipped.str(), qos);
                     ROS_DEBUG_STREAM("image transport publisher was created for topic" << image_raw.str());
                 }
                 _depth_aligned_info_publisher[sip] = _node.create_publisher<sensor_msgs::msg::CameraInfo>(aligned_camera_info.str(),

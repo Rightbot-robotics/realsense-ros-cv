@@ -267,6 +267,7 @@ namespace realsense2_camera
 
         bool _use_intra_process;      
         std::map<stream_index_pair, std::shared_ptr<image_publisher>> _image_publishers;
+        std::map<stream_index_pair, std::shared_ptr<image_publisher>> _image_raw_publishers;
         
         std::map<stream_index_pair, rclcpp::Publisher<sensor_msgs::msg::Imu>::SharedPtr> _imu_publishers;
         std::shared_ptr<rclcpp::Publisher<nav_msgs::msg::Odometry>> _odom_publisher;
@@ -304,6 +305,7 @@ namespace realsense2_camera
         std::map<stream_index_pair, cv::Mat> _depth_scaled_image;
         std::map<stream_index_pair, rclcpp::Publisher<sensor_msgs::msg::CameraInfo>::SharedPtr> _depth_aligned_info_publisher;
         std::map<stream_index_pair, std::shared_ptr<image_publisher>> _depth_aligned_image_publishers;
+        std::map<stream_index_pair, std::shared_ptr<image_publisher>> _depth_aligned_image_raw_publishers;
         std::map<std::string, rs2::region_of_interest> _auto_exposure_roi;
         std::map<rs2_stream, bool> _is_first_frame;
 
