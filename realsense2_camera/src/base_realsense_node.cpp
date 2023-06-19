@@ -669,25 +669,31 @@ void BaseRealSenseNode::frame_callback(rs2::frame frame)
                         _image,
                         _info_publisher,
                         _image_publishers);
-            publishFrame(f, t, sip,
+            publishFrame(f_raw, t, sip,
                         _image,
                         _info_publisher,
                         _image_raw_publishers);
         }
         if (original_depth_frame && _align_depth_filter->is_enabled())
         {
-            rs2::frame frame_to_send;
+            rs2::frame frame_to_send, frame_to_send_raw;
             if (_colorizer_filter->is_enabled())
+            {
                 frame_to_send = _colorizer_filter->Process(original_depth_frame);
+                frame_to_send_raw = _colorizer_raw_filter->Process(original_depth_frame_raw);
+            }
             else
+            {
                 frame_to_send = original_depth_frame;
+                frame_to_send_raw = original_depth_frame;
+            }
                 
             publishFrame(frame_to_send, t,
                         DEPTH,
                         _image,
                         _info_publisher,
                         _image_publishers);
-            publishFrame(frame_to_send, t,
+            publishFrame(frame_to_send_raw, t,
                         DEPTH,
                         _image,
                         _info_publisher,
