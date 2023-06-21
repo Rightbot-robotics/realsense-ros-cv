@@ -11,7 +11,7 @@ from launch.substitutions import LaunchConfiguration, PythonExpression
 from launch.conditions import IfCondition
 
 
-configurable_parameters = [{'name': 'camera_name',                  'default': 'camera', 'description': 'camera unique name'},
+configurable_parameters = [{'name': 'camera_name',                  'default': 'right_camera', 'description': 'camera unique name'},
                            {'name': 'serial_no',                    'default': "''", 'description': 'choose device by serial number'},
                            {'name': 'usb_port_id',                  'default': "''", 'description': 'choose device by usb port id'},
                            {'name': 'device_type',                  'default': "''", 'description': 'choose device by type'},
@@ -61,7 +61,7 @@ configurable_parameters = [{'name': 'camera_name',                  'default': '
 config = os.path.join(
         get_package_share_directory('realsense2_camera'),
         'config',
-        'params.yaml'
+        'right_camera_params.yaml'
         )
 
 def declare_configurable_parameters(parameters):
@@ -104,8 +104,8 @@ def generate_launch_description():
             launch_ros.actions.Node(
                 # condition=IfCondition(PythonExpression([LaunchConfiguration('config_file'), " == ''"])),
                 package='realsense2_camera',
-                namespace='camera',
-                name='camera',
+                namespace='right_camera',
+                name='right_camera',
                 executable='realsense2_camera_node',
                 parameters=[config],
                 output='screen',

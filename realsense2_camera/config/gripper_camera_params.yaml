@@ -1,4 +1,4 @@
-/left_camera/left_camera:
+/gripper_camera/gripper_camera:
   ros__parameters:  
     accel_fps: 100
     accel_info_qos: DEFAULT
@@ -7,7 +7,7 @@
     align_depth.frames_queue_size: 16
     angular_velocity_cov: 0.01
     base_frame_id: link
-    camera_name: left_camera
+    camera_name: gripper_camera
     clip_distance: 6.0
     color_info_qos: DEFAULT
     color_qos: SYSTEM_DEFAULT
@@ -21,7 +21,7 @@
     colorizer.stream_format_filter: 1
     colorizer.stream_index_filter: -1
     colorizer.visual_preset: 0
-    decimation_filter.enable: true
+    decimation_filter.enable: false
     decimation_filter.filter_magnitude: 8
     decimation_filter.frames_queue_size: 16
     decimation_filter.stream_filter: 0
@@ -49,7 +49,7 @@
     depth_module.inter_cam_sync_mode: 0
     depth_module.laser_power: 150.0
     depth_module.output_trigger_enabled: false
-    depth_module.profile: 848x480x15
+    depth_module.profile: 1280x720x15
     depth_module.sequence_id: 0
     depth_module.sequence_name: 0
     depth_module.sequence_size: 2
@@ -86,20 +86,20 @@
     infra2_info_qos: DEFAULT
     infra2_qos: SYSTEM_DEFAULT
     initial_reset: false
-    json_file_path: '/application/sherlock_cv_ws/src/sherlock_cv/realsense-ros-cv/realsense2_camera/config/high_accuracy.json'
+    json_file_path: ''
     linear_accel_cov: 0.01
     motion_module.enable_motion_correction: true
     motion_module.frames_queue_size: 16
     motion_module.global_time_enabled: true
     pointcloud.allow_no_texture_points: false
-    pointcloud.enable: true
+    pointcloud.enable: false
     pointcloud.filter_magnitude: 2
     pointcloud.frames_queue_size: 16
     pointcloud.ordered_pc: false
     pointcloud.pointcloud_qos: DEFAULT
     pointcloud.stream_filter: 0
     pointcloud.stream_format_filter: 0
-    publish_odom_tf: true
+    publish_odom_tf: false
     publish_tf: false
     qos_overrides./parameter_events.publisher.depth: 1000
     qos_overrides./parameter_events.publisher.durability: volatile
@@ -130,7 +130,7 @@
     rgb_camera.sharpness: 50
     rgb_camera.white_balance: 4600.0
     rosbag_filename: ''
-    serial_no: '117222250167'
+    serial_no: '831612070818'
     spatial_filter.enable: false
     spatial_filter.filter_magnitude: 2
     spatial_filter.filter_smooth_alpha: 0.36

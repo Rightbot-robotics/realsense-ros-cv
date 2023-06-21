@@ -1,4 +1,4 @@
-/left_camera/left_camera:
+/right_camera/right_camera:
   ros__parameters:  
     accel_fps: 100
     accel_info_qos: DEFAULT
@@ -6,8 +6,8 @@
     align_depth.enable: true
     align_depth.frames_queue_size: 16
     angular_velocity_cov: 0.01
-    base_frame_id: link
-    camera_name: left_camera
+    base_frame_id: link 
+    camera_name: right_camera
     clip_distance: 6.0
     color_info_qos: DEFAULT
     color_qos: SYSTEM_DEFAULT
@@ -99,7 +99,7 @@
     pointcloud.pointcloud_qos: DEFAULT
     pointcloud.stream_filter: 0
     pointcloud.stream_format_filter: 0
-    publish_odom_tf: true
+    publish_odom_tf: false
     publish_tf: false
     qos_overrides./parameter_events.publisher.depth: 1000
     qos_overrides./parameter_events.publisher.durability: volatile
@@ -130,7 +130,7 @@
     rgb_camera.sharpness: 50
     rgb_camera.white_balance: 4600.0
     rosbag_filename: ''
-    serial_no: '117222250167'
+    serial_no: '114122250386'
     spatial_filter.enable: false
     spatial_filter.filter_magnitude: 2
     spatial_filter.filter_smooth_alpha: 0.36
@@ -148,7 +148,7 @@
     temporal_filter.stream_filter: 1
     temporal_filter.stream_format_filter: 0
     temporal_filter.stream_index_filter: 0
-    tf_publish_rate: 10.0
+    tf_publish_rate: 0.0
     unite_imu_method: 0
     usb_port_id: ''
     use_sim_time: false
