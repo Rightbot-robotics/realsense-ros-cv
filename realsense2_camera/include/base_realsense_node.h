@@ -296,6 +296,7 @@ namespace realsense2_camera
         std::shared_ptr<NamedFilter> _colorizer_raw_filter;
         std::shared_ptr<AlignDepthFilter> _align_depth_filter;
         std::shared_ptr<AlignDepthFilter> _align_depth_raw_filter;
+        std::shared_ptr<AlignDepthFilter> _align_depth_raw_filter_initial;
         std::shared_ptr<PointcloudFilter> _pc_filter;
         std::shared_ptr<PointcloudFilter> _pc_raw_filter;
         std::vector<std::shared_ptr<NamedFilter>> _filters;
