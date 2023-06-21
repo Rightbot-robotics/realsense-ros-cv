@@ -207,9 +207,9 @@ void BaseRealSenseNode::setupFilters()
     _filters.push_back(std::make_shared<NamedFilter>(std::make_shared<rs2::hole_filling_filter>(), _parameters, _logger));
     _filters.push_back(std::make_shared<NamedFilter>(std::make_shared<rs2::disparity_transform>(false), _parameters, _logger));
 
-    _align_depth_raw_filter_initial = std::make_shared<AlignDepthFilter>(std::make_shared<rs2::align>(RS2_STREAM_COLOR), update_align_depth_func, _parameters, _logger);
-    _raw_filters.push_back(_align_depth_raw_filter_initial);
-    // _raw_filters.push_back(std::make_shared<NamedFilter>(std::make_shared<rs2::decimation_filter>(), _parameters, _logger));
+    // _align_depth_raw_filter_initial = std::make_shared<AlignDepthFilter>(std::make_shared<rs2::align>(RS2_STREAM_COLOR), update_align_depth_func, _parameters, _logger);
+    // _raw_filters.push_back(_align_depth_raw_filter_initial);
+    _raw_filters.push_back(std::make_shared<NamedFilter>(std::make_shared<rs2::decimation_filter>(), _parameters, _logger));
     _raw_filters.push_back(std::make_shared<NamedFilter>(std::make_shared<rs2::hdr_merge>(), _parameters, _logger));
     _raw_filters.push_back(std::make_shared<NamedFilter>(std::make_shared<rs2::sequence_id_filter>(), _parameters, _logger));
     _raw_filters.push_back(std::make_shared<NamedFilter>(std::make_shared<rs2::disparity_transform>(), _parameters, _logger));
