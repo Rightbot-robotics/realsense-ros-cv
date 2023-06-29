@@ -61,7 +61,7 @@ configurable_parameters = [{'name': 'camera_name',                  'default': '
 config = os.path.join(
         get_package_share_directory('realsense2_camera'),
         'config',
-        'gripper_camera_params.yaml'
+        'gripper_camera_params_without_pc.yaml'
         )
 
 def declare_configurable_parameters(parameters):
