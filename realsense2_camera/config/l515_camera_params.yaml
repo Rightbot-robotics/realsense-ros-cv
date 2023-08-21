@@ -21,31 +21,31 @@
     # colorizer.stream_format_filter: 1
     # colorizer.stream_index_filter: -1
     # colorizer.visual_preset: 0
-    # decimation_filter.enable: true
-    # decimation_filter.filter_magnitude: 8
-    # decimation_filter.frames_queue_size: 16
+    decimation_filter.enable: true
+    decimation_filter.filter_magnitude: 2
+    decimation_filter.frames_queue_size: 16
     # decimation_filter.stream_filter: 0
     # decimation_filter.stream_format_filter: 0
     # decimation_filter.stream_index_filter: 0
     # depth_info_qos: DEFAULT
-    # depth_module.auto_exposure_limit: 200000
-    # depth_module.auto_exposure_limit_toggle: false
-    # depth_module.auto_exposure_roi.bottom: 479
-    # depth_module.auto_exposure_roi.left: 0
-    # depth_module.auto_exposure_roi.right: 639
-    # depth_module.auto_exposure_roi.top: 0
-    # depth_module.auto_gain_limit: 248
-    # depth_module.auto_gain_limit_toggle: false
+    depth_module.auto_exposure_limit: 200000
+    depth_module.auto_exposure_limit_toggle: false
+    depth_module.auto_exposure_roi.bottom: 479
+    depth_module.auto_exposure_roi.left: 0
+    depth_module.auto_exposure_roi.right: 639
+    depth_module.auto_exposure_roi.top: 0
+    depth_module.auto_gain_limit: 248
+    depth_module.auto_gain_limit_toggle: false
     # depth_module.emitter_always_on: false
-    # depth_module.emitter_enabled: 1
+    depth_module.emitter_enabled: 1
     # depth_module.emitter_on_off: false
-    # depth_module.enable_auto_exposure: true
-    # depth_module.error_polling_enabled: true
-    # depth_module.exposure: 8500
+    depth_module.enable_auto_exposure: true
+    depth_module.error_polling_enabled: true
+    depth_module.exposure: 8500
     # depth_module.frames_queue_size: 16
-    # depth_module.gain: 16
-    # depth_module.global_time_enabled: true
-    # depth_module.hdr_enabled: false
+    depth_module.gain: 16
+    depth_module.global_time_enabled: true
+    depth_module.hdr_eenabled: false
     depth_module.inter_cam_sync_mode: false
     depth_module.laser_power: 100
     # depth_module.output_trigger_enabled: false
