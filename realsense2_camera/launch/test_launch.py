@@ -73,15 +73,55 @@ def set_configurable_parameters(parameters):
 def generate_launch_description():
     print(config)
     log_level = 'info'
-    return LaunchDescription([
-        launch_ros.actions.Node(
-            package='realsense2_camera',
-            namespace='l515_camera',
-            name='l515_camera',
-            executable='realsense2_camera_node',
-            parameters=[config],
-            output='screen',
-            arguments=['--ros-args', '--log-level', 'info'],
-            emulate_tty=True,
-            ),
+    if (os.getenv('ROS_DISTRO') == "dashing") or (os.getenv('ROS_DISTRO') == "eloquent"):
+        return LaunchDescription(declare_configurable_parameters(configurable_parameters) + [
+            # Realsense
+            launch_ros.actions.Node(
+                condition=IfCondition(PythonExpression([LaunchConfiguration('config_file'), " == ''"])),
+                package='realsense2_camera',
+                # node_namespace='camera',
+                # node_name='camera',
+                executable='realsense2_camera_node',
+                prefix=['stdbuf -o L'],
+                parameters=[config],
+                output='screen',
+                arguments=['--ros-args', '--log-level', LaunchConfiguration('log_level')],
+                ),
+            launch_ros.actions.Node(
+                condition=IfCondition(PythonExpression([LaunchConfiguration('config_file'), " != ''"])),
+                package='realsense2_camera',
+                # node_namespace='camera',
+                # node_name='camera',
+                executable='realsense2_camera_node',
+                prefix=['stdbuf -o L'],
+                parameters=[config],
+                output='screen',
+                arguments=['--ros-args', '--log-level', LaunchConfiguration('log_level')],
+                ),
+            ])
+    else:
+        return LaunchDescription([
+            # Realsense
+            launch_ros.actions.Node(
+                # condition=IfCondition(PythonExpression([LaunchConfiguration('config_file'), " == ''"])),
+                package='realsense2_camera',
+                namespace='l515_camera',
+                name='l515_camera',
+                executable='realsense2_camera_node',
+                parameters=[config],
+                output='screen',
+                arguments=['--ros-args', '--log-level', 'info'],
+                emulate_tty=True,
+                ),
+            # launch_ros.actions.Node(
+            #     condition=IfCondition(PythonExpression([LaunchConfiguration('config_file'), " != ''"])),
+            #     package='realsense2_camera',
+            #     # node_namespace='camera',
+            #     # node_name='camera',
+            #     executable='realsense2_camera_node',
+            #     parameters=[config],
+            #     output='screen',
+            #     arguments=['--ros-args', '--log-level', LaunchConfiguration('log_level')],
+            #     emulate_tty=True,
+            #     ),
         ])
