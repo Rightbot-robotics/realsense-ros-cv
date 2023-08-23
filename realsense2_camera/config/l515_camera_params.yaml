@@ -8,25 +8,25 @@
     angular_velocity_cov: 0.01
     base_frame_id: link
     camera_name: l515_camera
-    # clip_distance: 6.0
-    # color_info_qos: DEFAULT
-    # color_qos: SYSTEM_DEFAULT
-    # colorizer.color_scheme: 0
-    # colorizer.enable: false
-    # colorizer.frames_queue_size: 16
-    # colorizer.histogram_equalization_enabled: true
-    # colorizer.max_distance: 6.0
-    # colorizer.min_distance: 0.0
-    # colorizer.stream_filter: 1
-    # colorizer.stream_format_filter: 1
-    # colorizer.stream_index_filter: -1
-    # colorizer.visual_preset: 0
+    clip_distance: 6.0
+    color_info_qos: DEFAULT
+    color_qos: SYSTEM_DEFAULT
+    colorizer.color_scheme: 0
+    colorizer.enable: false
+    colorizer.frames_queue_size: 16
+    colorizer.histogram_equalization_enabled: true
+    colorizer.max_distance: 6.0
+    colorizer.min_distance: 0.0
+    colorizer.stream_filter: 1
+    colorizer.stream_format_filter: 1
+    colorizer.stream_index_filter: -1
+    colorizer.visual_preset: 0
     decimation_filter.enable: true
     decimation_filter.filter_magnitude: 2
     decimation_filter.frames_queue_size: 16
-    # decimation_filter.stream_filter: 0
-    # decimation_filter.stream_format_filter: 0
-    # decimation_filter.stream_index_filter: 0
+    # # decimation_filter.stream_filter: 0
+    # # decimation_filter.stream_format_filter: 0
+    # # decimation_filter.stream_index_filter: 0
     # depth_info_qos: DEFAULT
     # depth_module.auto_exposure_limit: 200000
     # depth_module.auto_exposure_limit_toggle: false
@@ -49,7 +49,7 @@
     # depth_module.inter_cam_sync_mode: false
     # depth_module.laser_power: 100
     # depth_module.output_trigger_enabled: false
-    depth_module.profile: 1024x768x15
+    depth_module.profile: 1024x768x30
     # depth_module.sequence_id: 0
     # depth_module.sequence_name: 0
     # depth_module.sequence_size: 2
@@ -65,7 +65,7 @@
     # enable_gyro: false
     # enable_infra1: true
     # enable_infra2: true
-    # enable_sync: true
+    enable_sync: true
     # filter_by_sequence_id.enable: false
     # filter_by_sequence_id.frames_queue_size: 16
     # filter_by_sequence_id.sequence_id: 1
@@ -75,62 +75,62 @@
     # hdr_merge.enable: false
     # hdr_merge.frames_queue_size: 16
     # hold_back_imu_for_frames: false
-    # hole_filling_filter.enable: false
-    # hole_filling_filter.frames_queue_size: 16
-    # hole_filling_filter.holes_fill: 1
-    # hole_filling_filter.stream_filter: 1
-    # hole_filling_filter.stream_format_filter: 1
-    # hole_filling_filter.strea/m_index_filter: -1
+    hole_filling_filter.enable: false
+    hole_filling_filter.frames_queue_size: 16
+    hole_filling_filter.holes_fill: 1
+    hole_filling_filter.stream_filter: 1
+    hole_filling_filter.stream_format_filter: 1
+    hole_filling_filter.strea/m_index_filter: -1
     # infra1_info_qos: DEFAULT
     # infra1_qos: SYSTEM_DEFAULT
     # infra2_info_qos: DEFAULT
     # infra2_qos: SYSTEM_DEFAULT
     # initial_reset: false
     json_file_path: '/application/sherlock_cv_ws/src/sherlock_cv/realsense-ros-cv/realsense2_camera/config/max_range_l515.json'
-    # linear_accel_cov: 0.01
-    # motion_module.enable_motion_correction: true
-    # motion_module.frames_queue_size: 16
-    # motion_module.global_time_enabled: true
-    # pointcloud.allow_no_texture_points: false
-    # pointcloud.enable: true
-    # pointcloud.filter_magnitude: 2
-    # pointcloud.frames_queue_size: 16
-    # pointcloud.ordered_pc: false
-    # pointcloud.pointcloud_qos: DEFAULT
-    # pointcloud.stream_filter: 0
-    # pointcloud.stream_format_filter: 0
-    # publish_odom_tf: true
-    # publish_tf: false
-    # qos_overrides./parameter_events.publisher.depth: 1000
-    # qos_overrides./parameter_events.publisher.durability: volatile
-    # qos_overrides./parameter_events.publisher.history: keep_last
-    # qos_overrides./parameter_events.publisher.reliability: reliable
-    # qos_overrides./tf_static.publisher.depth: 1
-    # qos_overrides./tf_static.publisher.history: keep_last
-    # qos_overrides./tf_static.publisher.reliability: reliable
-    # reconnect_timeout: 6.0
-    # rgb_camera.auto_exposure_priority: false
-    # rgb_camera.auto_exposure_roi.bottom: 479
-    # rgb_camera.auto_exposure_roi.left: 0
-    # rgb_camera.auto_exposure_roi.right: 639
-    # rgb_camera.auto_exposure_roi.top: 0
-    rgb_camera.backlight_compensation: 0
-    rgb_camera.brightness: 5
-    rgb_camera.contrast: 50
+    linear_accel_cov: 0.01
+    motion_module.enable_motion_correction: true
+    motion_module.frames_queue_size: 16
+    motion_module.global_time_enabled: true
+    pointcloud.allow_no_texture_points: false
+    pointcloud.enable: true
+    pointcloud.filter_magnitude: 2
+    pointcloud.frames_queue_size: 16
+    pointcloud.ordered_pc: false
+    pointcloud.pointcloud_qos: DEFAULT
+    pointcloud.stream_filter: 0
+    pointcloud.stream_format_filter: 0
+    publish_odom_tf: true
+    publish_tf: false
+    qos_overrides./parameter_events.publisher.depth: 1000
+    qos_overrides./parameter_events.publisher.durability: volatile
+    qos_overrides./parameter_events.publisher.history: keep_last
+    qos_overrides./parameter_events.publisher.reliability: reliable
+    qos_overrides./tf_static.publisher.depth: 1
+    qos_overrides./tf_static.publisher.history: keep_last
+    qos_overrides./tf_static.publisher.reliability: reliable
+    reconnect_timeout: 6.0
+    rgb_camera.auto_exposure_priority: false
+    rgb_camera.auto_exposure_roi.bottom: 479
+    rgb_camera.auto_exposure_roi.left: 0
+    rgb_camera.auto_exposure_roi.right: 639
+    rgb_camera.auto_exposure_roi.top: 0
+    rgb_camera.backlight_compensation: true
+    rgb_camera.brightness: 10
+    rgb_camera.contrast: 60
     rgb_camera.enable_auto_exposure: false
     rgb_camera.enable_auto_white_balance: false
-    rgb_camera.exposure: 600
+    rgb_camera.exposure: 900
     rgb_camera.frames_queue_size: 16
     rgb_camera.gain: 0
-    rgb_camera.gamma: 100
+    rgb_camera.gamma: 0
     rgb_camera.global_time_enabled: true
-    rgb_camera.hue: 0
-    rgb_camera.profile: 1280x720x15
+    rgb_camera.hue: 5
+    rgb_camera.profile: 1280x720x30
     rgb_camera.saturation: 64
     rgb_camera.sharpness: 50
     rgb_camera.white_balance: 4600.0
-    # rosbag_filename: ''
-    serial_no: 'f1272058'
+    rosbag_filename: ''
+    serial_no: 'f1320936'
     spatial_filter.enable: false
     spatial_filter.filter_magnitude: 2
     spatial_filter.filter_smooth_alpha: 0.36
