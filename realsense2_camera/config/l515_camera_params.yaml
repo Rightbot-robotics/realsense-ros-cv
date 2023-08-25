@@ -24,9 +24,9 @@
     decimation_filter.enable: true
     decimation_filter.filter_magnitude: 2
     decimation_filter.frames_queue_size: 16
-    # # decimation_filter.stream_filter: 0
-    # # decimation_filter.stream_format_filter: 0
-    # # decimation_filter.stream_index_filter: 0
+    decimation_filter.stream_filter: 1
+    decimation_filter.stream_format_filter: 0
+    decimation_filter.stream_index_filter: 0
     # depth_info_qos: DEFAULT
     # depth_module.auto_exposure_limit: 200000
     # depth_module.auto_exposure_limit_toggle: false
@@ -44,8 +44,8 @@
     # depth_module.exposure: 8500
     # depth_module.frames_queue_size: 16
     # depth_module.gain: 16
-    # depth_module.global_time_enabled: true
-    # depth_module.hdr_eenabled: false
+    depth_module.global_time_enabled: false
+    # depth_module.hdr_enabled: false
     # depth_module.inter_cam_sync_mode: false
     # depth_module.laser_power: 100
     # depth_module.output_trigger_enabled: false
@@ -114,7 +114,7 @@
     rgb_camera.auto_exposure_roi.left: 0
     rgb_camera.auto_exposure_roi.right: 639
     rgb_camera.auto_exposure_roi.top: 0
-    rgb_camera.backlight_compensation: true
+    rgb_camera.backlight_compensation: 128
     rgb_camera.brightness: 10
     rgb_camera.contrast: 60
     rgb_camera.enable_auto_exposure: false
