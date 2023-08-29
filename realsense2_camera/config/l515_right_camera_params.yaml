@@ -24,9 +24,9 @@
     decimation_filter.enable: false
     decimation_filter.filter_magnitude: 2
     decimation_filter.frames_queue_size: 16
-    decimation_filter.stream_filter: 1
-    decimation_filter.stream_format_filter: 0
-    decimation_filter.stream_index_filter: 0
+    # # decimation_filter.stream_filter: 0
+    # # decimation_filter.stream_format_filter: 0
+    # # decimation_filter.stream_index_filter: 0
     # depth_info_qos: DEFAULT
     # depth_module.auto_exposure_limit: 200000
     # depth_module.auto_exposure_limit_toggle: false
@@ -44,8 +44,8 @@
     # depth_module.exposure: 8500
     depth_module.frames_queue_size: 16
     # depth_module.gain: 16
-    depth_module.global_time_enabled: false
-    # depth_module.hdr_enabled: false
+    depth_module.global_time_enabled: true
+    # depth_module.hdr_eenabled: false
     # depth_module.inter_cam_sync_mode: false
     # depth_module.laser_power: 100
     # depth_module.output_trigger_enabled: false
@@ -114,10 +114,10 @@
     rgb_camera.auto_exposure_roi.left: 0
     rgb_camera.auto_exposure_roi.right: 639
     rgb_camera.auto_exposure_roi.top: 0
-    rgb_camera.backlight_compensation: 128
+    rgb_camera.backlight_compensation: true
     rgb_camera.brightness: 10
     rgb_camera.contrast: 60
-    rgb_camera.enable_auto_exposure: false
+    rgb_camera.enable_auto_exposure: true
     rgb_camera.enable_auto_white_balance: false
     rgb_camera.exposure: 2500
     rgb_camera.frames_queue_size: 16
@@ -130,7 +130,11 @@
     rgb_camera.sharpness: 50
     rgb_camera.white_balance: 4600.0
     rosbag_filename: ''
+<<<<<<< Updated upstream:realsense2_camera/config/l515_right_camera_params.yaml
     serial_no: 'f1272058'
+=======
+    # serial_no: 'f1272058'
+>>>>>>> Stashed changes:realsense2_camera/config/l515_camera_params.yaml
     spatial_filter.enable: false
     spatial_filter.filter_magnitude: 2
     spatial_filter.filter_smooth_alpha: 0.36
