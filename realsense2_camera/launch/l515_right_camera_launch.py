@@ -11,7 +11,7 @@ from launch.substitutions import LaunchConfiguration, PythonExpression
 from launch.conditions import IfCondition
 
 
-configurable_parameters = [{'name': 'camera_name',                  'default': 'l515_camera', 'description': 'camera unique name'},
+configurable_parameters = [{'name': 'camera_name',                  'default': 'l515_right_camera', 'description': 'camera unique name'},
                            {'name': 'serial_no',                    'default': "''", 'description': 'choose device by serial number'},
                            {'name': 'usb_port_id',                  'default': "''", 'description': 'choose device by usb port id'},
                            {'name': 'device_type',                  'default': "''", 'description': 'choose device by type'},
@@ -61,7 +61,7 @@ configurable_parameters = [{'name': 'camera_name',                  'default': '
 config = os.path.join(
         get_package_share_directory('realsense2_camera'),
         'config',
-        'l515_camera_params.yaml'
+        'l515_right_camera_params.yaml'
         )
 
 def declare_configurable_parameters(parameters):
@@ -76,8 +76,8 @@ def generate_launch_description():
     return LaunchDescription([
         launch_ros.actions.Node(
             package='realsense2_camera',
-            namespace='l515_camera',
-            name='l515_camera',
+            namespace='l515_right_camera',
+            name='l515_right_camera',
             executable='realsense2_camera_node',
             parameters=[config],
             output='screen',

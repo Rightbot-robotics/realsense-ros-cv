@@ -7,7 +7,7 @@
     align_depth.frames_queue_size: 16
     angular_velocity_cov: 0.01
     base_frame_id: link
-    camera_name: l515_camera
+    camera_name: l515_left_camera
     clip_distance: 6.0
     color_info_qos: DEFAULT
     color_qos: SYSTEM_DEFAULT
