@@ -1,4 +1,4 @@
-/l515_camera/l515_camera:
+/l515_right_camera/l515_right_camera:
   ros__parameters:  
     accel_fps: 100
     accel_info_qos: DEFAULT
