@@ -130,7 +130,7 @@
     rgb_camera.sharpness: 50
     rgb_camera.white_balance: 4600.0
     rosbag_filename: ''
-    serial_no: 'f1272058'
+    serial_no: 'f1320936'
     spatial_filter.enable: false
     spatial_filter.filter_magnitude: 2
     spatial_filter.filter_smooth_alpha: 0.36
