@@ -72,7 +72,7 @@ def set_configurable_parameters(parameters):
 
 def generate_launch_description():
     print(config)
-    log_level = 'info'
+    log_level = 'debug'
     return LaunchDescription([
         launch_ros.actions.Node(
             package='realsense2_camera',
@@ -81,7 +81,7 @@ def generate_launch_description():
             executable='realsense2_camera_node',
             parameters=[config],
             output='screen',
-            arguments=['--ros-args', '--log-level', 'info'],
+            arguments=['--ros-args', '--log-level', 'debug'],
             emulate_tty=True,
             ),
         ])

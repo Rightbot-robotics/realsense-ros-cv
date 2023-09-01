@@ -44,12 +44,13 @@
     # depth_module.exposure: 8500
     depth_module.frames_queue_size: 16
     # depth_module.gain: 16
-    depth_module.global_time_enabled: trueq
+    depth_module.global_time_enabled: true
     # depth_module.hdr_enabled: false
     # depth_module.inter_cam_sync_mode: false
     # depth_module.laser_power: 100
     # depth_module.output_trigger_enabled: false
     depth_module.profile: 1024x768x30
+    depth_module.min_distance: 1200
     # depth_module.sequence_id: 0
     # depth_module.sequence_name: 0
     # depth_module.sequence_size: 2

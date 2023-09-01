@@ -25,7 +25,7 @@
         "Laser Power": 100.0,
         "Ma Temperature": 47.15151596069336,
         "Mc Temperature": 49.10404968261719,
-        "Min Distance": 900.0,
+        "Min Distance": 1200.0,
         "Noise Estimation": 1239.0,
         "Noise Filtering": 4.0,
         "Post Processing Sharpening": 1.0,
@@ -38,8 +38,8 @@
     "viewer": {
         "stream-depth-format": "Z16",
         "stream-fps": "30",
-        "stream-height": "480",
+        "stream-height": "768",
         "stream-ir-format": "Y8",
-        "stream-width": "640"
+        "stream-width": "1024"
     }
 }
