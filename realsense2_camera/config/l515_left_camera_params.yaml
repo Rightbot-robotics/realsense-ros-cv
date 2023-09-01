@@ -21,8 +21,8 @@
     colorizer.stream_format_filter: 1
     colorizer.stream_index_filter: -1
     colorizer.visual_preset: 0
-    decimation_filter.enable: false
-    decimation_filter.filter_magnitude: 2
+    decimation_filter.enable: true
+    decimation_filter.filter_magnitude: 4
     decimation_filter.frames_queue_size: 16
     decimation_filter.stream_filter: 1
     decimation_filter.stream_format_filter: 0
@@ -44,7 +44,7 @@
     # depth_module.exposure: 8500
     depth_module.frames_queue_size: 16
     # depth_module.gain: 16
-    depth_module.global_time_enabled: false
+    depth_module.global_time_enabled: true
     # depth_module.hdr_enabled: false
     # depth_module.inter_cam_sync_mode: false
     # depth_module.laser_power: 100
