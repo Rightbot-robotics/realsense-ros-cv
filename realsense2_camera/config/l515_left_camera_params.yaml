@@ -55,6 +55,11 @@
     # depth_module.sequence_name: 0
     # depth_module.sequence_size: 2
     # depth_module.visual_preset: 0
+    depth_module.post_processing_sharpening: 0
+    depth_module.pre_processing_sharpening: 2
+    depth_module.receiver_gain: 16
+    depth_module.noise_filtering: 6
+
     # depth_qos: SYSTEM_DEFAULT
     # device_type: ''
     # diagnostics_period: 0.0
@@ -87,14 +92,14 @@
     # infra2_info_qos: DEFAULT
     # infra2_qos: SYSTEM_DEFAULT
     # initial_reset: false
-    json_file_path: '/application/sherlock_cv_ws/src/sherlock_cv/realsense-ros-cv/realsense2_camera/config/max_range_l515.json'
+    json_file_path: '/application/sherlock_cv_ws/src/sherlock_cv/realsense-ros-cv/realsense2_camera/config/max_range_with_post_process_0.json'
     linear_accel_cov: 0.01
     motion_module.enable_motion_correction: true
     motion_module.frames_queue_size: 16
     motion_module.global_time_enabled: true
     pointcloud.allow_no_texture_points: false
     pointcloud.enable: true
-    pointcloud.filter_magnitude: 2
+    pointcloud.filter_magnitude: 1
     pointcloud.frames_queue_size: 16
     pointcloud.ordered_pc: false
     pointcloud.pointcloud_qos: DEFAULT
@@ -118,15 +123,15 @@
     rgb_camera.backlight_compensation: 128
     rgb_camera.brightness: 10
     rgb_camera.contrast: 60
-    rgb_camera.enable_auto_exposure: false
+    rgb_camera.enable_auto_exposure: true
     rgb_camera.enable_auto_white_balance: false
-    rgb_camera.exposure: 2500
+    rgb_camera.exposure: 500
     rgb_camera.frames_queue_size: 16
     rgb_camera.gain: 0
     rgb_camera.gamma: 0
     rgb_camera.global_time_enabled: true
     rgb_camera.hue: 5
-    rgb_camera.profile: 1280x720x30  #1920x1080x30
+    rgb_camera.profile: 1280x720x15  #1920x1080x30
     rgb_camera.saturation: 64
     rgb_camera.sharpness: 50
     rgb_camera.white_balance: 4600.0
