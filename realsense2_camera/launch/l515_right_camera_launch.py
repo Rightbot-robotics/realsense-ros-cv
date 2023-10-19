@@ -81,7 +81,7 @@ def generate_launch_description():
             executable='realsense2_camera_node',
             parameters=[config],
             output='screen',
-            arguments=['--ros-args', '--log-level', 'debug'],
+            arguments=['--ros-args', '--log-level', 'info'],
             emulate_tty=True,
             ),
         ])
