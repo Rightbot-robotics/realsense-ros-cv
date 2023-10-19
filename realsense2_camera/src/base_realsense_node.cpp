@@ -655,7 +655,9 @@ void BaseRealSenseNode::frame_callback(rs2::frame frame)
                 if (sent_depth_frame) continue;
                 sent_depth_frame = true;
                 if (_align_depth_filter->is_enabled())
-                {
+                {   ROS_DEBUG("Align depth");
+                    ROS_DEBUG("Frame OG:  %d ", f.get_data_size());
+                    ROS_DEBUG("Frame Unclipped: %d ", f_raw.get_data_size());
                     publishFrame(f, t, COLOR,
                             _depth_aligned_image,
                             _depth_aligned_info_publisher,
