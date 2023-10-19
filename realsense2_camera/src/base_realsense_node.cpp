@@ -690,7 +690,7 @@ void BaseRealSenseNode::frame_callback(rs2::frame frame)
             else
             {
                 frame_to_send = original_depth_frame;
-                frame_to_send_raw = original_depth_frame;
+                frame_to_send_raw = original_depth_frame_raw;
             }
                 
             publishFrame(frame_to_send, t,
@@ -757,7 +757,7 @@ bool BaseRealSenseNode::setBaseTime(double frame_time, rs2_timestamp_domain time
     ROS_WARN_ONCE(time_domain == RS2_TIMESTAMP_DOMAIN_SYSTEM_TIME ? "Frame metadata isn't available! (frame_timestamp_domain = RS2_TIMESTAMP_DOMAIN_SYSTEM_TIME)" : "");
     if (time_domain == RS2_TIMESTAMP_DOMAIN_HARDWARE_CLOCK)
     {
-        ROS_WARN("frame's time domain is HARDWARE_CLOCK. Timestamps may reset periodically.");
+        ROS_WARN("frame's time domain is H`ARDWARE_CLOCK. Timestamps may reset periodically.");
         _ros_time_base = _node.now();
         _camera_time_base = frame_time;
         return true;
