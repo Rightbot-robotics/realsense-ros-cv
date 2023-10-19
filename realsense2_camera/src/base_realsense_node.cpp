@@ -622,11 +622,11 @@ void BaseRealSenseNode::frame_callback(rs2::frame frame)
         for (int i = 0; i<static_cast<int>(_filters.size()); i++ )
         {   
             frameset = _filters[i]->Process(frameset);    
-            // if (i == 0)
-            //     _raw_filters[i]->_is_enabled = false;
+        }
+        for (int i = 0; i<static_cast<int>(_raw_filters.size()); i++ )
+        {   
             raw_frameset = _raw_filters[i]->Process(raw_frameset);
         }
-
         ROS_DEBUG("List of frameset after applying filters: size: %d", static_cast<int>(frameset.size()));
         bool sent_depth_frame(false);
         for (int i = 0; i<static_cast<int>(frameset.size()); i++ )
